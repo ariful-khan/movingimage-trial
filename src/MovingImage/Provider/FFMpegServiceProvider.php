@@ -9,7 +9,6 @@ use FFMpeg\FFMpeg;
 
 class FFMpegServiceProvider implements ServiceProviderInterface
 {
-
     /**
      * {@inheritdoc}
      */
