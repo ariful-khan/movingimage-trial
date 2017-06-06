@@ -26,6 +26,8 @@ class FFMpegService
     /**
      * @param string $videoName
      * @param string $offset
+     * @throws \FFMpeg\Exception\InvalidArgumentException
+     * @throws \FFMpeg\Exception\RuntimeException
      */
     public function generateImage(string $videoName, string $offset)
     {
