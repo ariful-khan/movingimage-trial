@@ -7,7 +7,10 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 $app->post('/screen-shot', function (Request $request) use ($app) {
     $app['FFMpegService']->generateImage($request->get('videoId'), $request->get('offset', 0));
-    return $app['twig']->render('index.html.twig', array());
+    return $app['twig']->render('index.html.twig', array(
+        'url' => $request->getBaseUrl() . $app['url_generator']->generate('screen-shot-download',
+                ['videoId' => $request->get('videoId'), 'offset' => $request->get('offset')]
+            )));
 })
     ->bind('screen-shot');
 
